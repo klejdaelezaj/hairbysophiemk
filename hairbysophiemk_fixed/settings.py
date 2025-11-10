@@ -125,6 +125,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # për collectstatic në Re
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]  # opsionale, vetëm nëse ke folder static në root
 
 # Default primary key field type
+ALLOWED_HOSTS = ["hairbysophiemk.onrender.com"]
+
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
