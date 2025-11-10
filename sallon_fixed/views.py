@@ -1,7 +1,5 @@
 import datetime
 from django.shortcuts import render, redirect
-from .forms import AppointmentForm  # ✅ moved import here
-from .google_calendar import get_free_times, add_event_to_google_calendar
 
 
 def home(request):
