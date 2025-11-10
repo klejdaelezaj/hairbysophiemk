@@ -1,0 +1,112 @@
+/* Re/* Reset bazë */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+    background-color: #F8F6F0;
+}
+
+/* Navbar Profesional */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #D1C7B6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.nav-left a,
+.nav-right a {
+    text-decoration: none;
+    color: #2f2f2f;
+    font-weight: 600;
+    margin: 0 20px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-left a::after,
+.nav-right a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #7b5f46;
+    left: 0;
+    bottom: -4px;
+    transition: width 0.3s ease;
+}
+
+.nav-left a:hover::after,
+.nav-right a:hover::after {
+    width: 100%;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+    color: #7b5f46;
+}
+
+/* Main */
+main {
+    flex: 1; /* zgjat hapësirën e mbetur midis navbar dhe footer */
+}
+
+/* Footer Profesional */
+footer {
+    background: #2f2f2f; /* Background i errët */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 16px;
+    width: 100%;
+    margin-top: auto; /* Gjithmonë në fund */
+    color: #ffffff; /* Teksti i bardhë */
+    position: relative;
+    opacity: 1;
+}
+
+footer p {
+    margin-bottom: 10px;
+    color: #ffffff; /* Teksti i bardhë */
+}
+
+footer a {
+    color: #ffffff; /* Link-et gjithmonë të bardhë */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin: 0 5px; /* Hapsirë midis link-eve */
+}
+
+footer a:hover {
+    color: #D1C7B6; /* Ngjyra e link-ut kur hover */
+    transform: translateY(-2px);
+}
+
+footer::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: #D1C7B6; /* Linja dekorative */
+    margin: 0 auto 15px;
+    border-radius: 2px;
+}

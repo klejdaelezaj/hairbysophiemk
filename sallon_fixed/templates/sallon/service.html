@@ -1,0 +1,128 @@
+{% extends "sallon/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="services">
+  <div class="container">
+    <div class="services-header">
+      <h2 class="services-title">Our Premium Hair Services</h2>
+      <p class="services-subtitle">
+        From everyday styling to special occasions, we offer professional services tailored to your needs.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service Item -->
+      <div class="service-item">
+        <img src="{% static 'images/cut.jpeg' %}" alt="Hair Cut Icon">
+        <h3>Hair Cuts</h3>
+        <p>Precision haircuts for women, men, and children to match your style and personality.</p>
+      </div>
+
+      <div class="service-item">
+        <img src="{% static 'images/dressing2.jpeg' %}" alt="Color Icon">
+        <h3>Hair Coloring</h3>
+        <p>Specialist color techniques including balayage, highlights, and vibrant fashion colors.</p>
+      </div>
+
+      <div class="service-item">
+        <img src="{% static 'images/Exclusive hair.jpeg' %}" alt="Extensions Icon">
+        <h3>Hair Extensions</h3>
+        <p>High-quality extensions to add length, volume, and glamour to your hair.</p>
+      </div>
+
+      <div class="service-item">
+        <img src="{% static 'images/8.jpeg' %}" alt="Blowdry Icon">
+        <h3>Brazilian Blowdry</h3>
+        <p>Sleek, smooth, and frizz-free hair that lasts for weeks, keeping you looking fabulous.</p>
+      </div>
+
+      <div class="service-item">
+        <img src="{% static 'images/10.jpeg' %}" alt="Bridal Hair Icon">
+        <h3>Bridal Hair</h3>
+        <p>Elegant bridal hairstyles and updos, designed to make your special day perfect.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* Services Section */
+.services {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.services-title {
+  font-size: 2.8rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.services-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Individual Service Item */
+.service-item {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.service-item img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.service-item h3 {
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 2.2rem;
+  }
+  .services-subtitle {
+    font-size: 1rem;
+  }
+}
+</style>
+
+{% endblock %}
