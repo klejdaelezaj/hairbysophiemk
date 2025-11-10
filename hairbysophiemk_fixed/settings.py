@@ -122,7 +122,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # për collectstatic në Render
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]  # opsionale, vetëm nëse ke folder static në root
 
 # Default primary key field type
 ALLOWED_HOSTS = ["hairbysophiemk.onrender.com"]
