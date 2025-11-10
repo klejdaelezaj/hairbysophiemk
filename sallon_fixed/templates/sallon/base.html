@@ -10,21 +10,20 @@
 <body>
 
     <!-- Navbar -->
-<nav class="navbar">
-  <div class="logo">
-    <a href="{% url 'home' %}">Hair By Sophie MK</a>
-  </div>
-  <span class="menu-toggle" onclick="toggleMenu()">☰</span>
-  <div class="nav-links" id="navLinks">
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'gallery' %}">Gallery</a>
-    <a href="{% url 'about_us' %}">About us</a>
-    <a href="{% url 'services' %}">Our Services</a>
-    <a href="{% url 'contact' %}">Contact us</a>
-    <a href="{% url 'book' %}">Book your appointments</a>
-  </div>
-</nav>
-
+    <nav class="navbar">
+      <div class="logo">
+        <a href="{% url 'home' %}">Hair By Sophie MK</a>
+      </div>
+      <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+      <div class="nav-links" id="navLinks">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'about_us' %}">About us</a>
+        <a href="{% url 'services' %}">Our Services</a>
+        <a href="{% url 'contact' %}">Contact us</a>
+        <a href="{% url 'book' %}">Book your appointments</a>
+      </div>
+    </nav>
 
     <!-- Content -->
     <main>
@@ -37,67 +36,6 @@
         <p>&copy; 2025 Hair By Sophie MK. All rights reserved. | <a href="{% url 'contact' %}">Contact Us</a></p>
     </footer>
 
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 25px;
-  background: black;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 1rem;
-}
-
-.logo a {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  color: white;
-  cursor: pointer;
-}
-
-/* MOBILE VIEW */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: black;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 12px 0;
-    margin: 0;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-}
-<script>
-  function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
-  }
-</script>
