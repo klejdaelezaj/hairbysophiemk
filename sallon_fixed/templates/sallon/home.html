@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+<!-- Importimi i fonteve -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 /* ===========================
    HERO SECTION – Hair By Sophie MK
@@ -16,11 +19,12 @@
   min-height: 100vh;
   padding: 140px 20px;
   background: linear-gradient(180deg, #e5d8c8 0%, #f3e9dc 100%);
+  background-attachment: fixed; /* efekt i lehtë parallax */
   color: #000;
   overflow: hidden;
 }
 
-/* Overlay i butë për efekt ndriçimi */
+/* Efekt ndriçimi i butë */
 .hero::before {
   content: "";
   position: absolute;
@@ -53,11 +57,12 @@
   z-index: 1;
 }
 
-/* Logo transparente */
+/* Logo me hije të butë */
 .hero img.logo {
   width: 300px;
   height: auto;
   opacity: 0;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
   transition: transform 1s ease, opacity 1s ease;
   animation: fadeInSmooth 2s ease forwards;
   z-index: 1;
@@ -65,6 +70,26 @@
 
 .hero img.logo:hover {
   transform: scale(1.05);
+}
+
+/* Butoni CTA */
+.cta-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #000;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: 35px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.cta-btn:hover {
+  background: #b48b68;
+  transform: translateY(-3px);
 }
 
 /* ======== ANIMACIONET ======== */
@@ -93,7 +118,7 @@
 /* ======== RESPONSIVE DESIGN ======== */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
   .hero h2 {
     font-size: 1.05rem;
@@ -117,12 +142,18 @@
     width: 180px;
   }
 }
+
+@media (max-width: 360px) {
+  .hero img.logo {
+    width: 150px;
+  }
+}
 </style>
 
 <section class="hero">
   <h1>Welcome to Hair By Sophie MK</h1>
   <h2>Your Style, Our Passion</h2>
   <img class="logo" src="{% static 'images/55.png' %}" alt="Hair By Sophie MK Logo">
+  <a href="{% url 'appointments' %}" class="cta-btn">Book Now</a>
 </section>
 {% endblock %}
-
