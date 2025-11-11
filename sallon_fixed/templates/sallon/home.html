@@ -40,18 +40,21 @@ main h2 {
   animation: fadeInUp 1.5s ease forwards;
 }
 
-/* ======== LOGO E SHKRIHUR PLOTËSISHT ======== */
+/* ======== LOGO SMOOTH & ELEGANTE ======== */
 main img.logo {
   width: 280px;
   height: auto;
-  opacity: 0.4; /* e shkrin me sfondin, por nuk krijon kutinë e bardhë */
-  filter: brightness(1.2) contrast(1.5); /* e bën logon më të fortë */
+  opacity: 0.75; /* më e dukshme, por ende e butë */
+  filter: brightness(1.15) contrast(1.25) saturate(1.1);
   margin-top: 20px;
   display: block;
+  transition: all 0.8s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* hije shumë e butë */
+  border-radius: 12px;
+  animation: fadeInSmooth 1.8s ease forwards;
 }
 
-
-/* ======== ANIMACION I BUTË ======== */
+/* ======== ANIMACIONET ======== */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -59,6 +62,17 @@ main img.logo {
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 0.75;
     transform: translateY(0);
   }
 }
@@ -72,8 +86,8 @@ main img.logo {
     font-size: 1rem;
   }
   main img.logo {
-    width: 200px;
-    opacity: 0.12;
+    width: 220px;
+    opacity: 0.7;
   }
 }
 
@@ -85,8 +99,8 @@ main img.logo {
     font-size: 0.95rem;
   }
   main img.logo {
-    width: 170px;
-    opacity: 0.1;
+    width: 180px;
+    opacity: 0.65;
   }
 }
 </style>
@@ -97,3 +111,4 @@ main img.logo {
   <img class="logo" src="{% static 'images/Sophies Mobile.png' %}" alt="Hair By Sophie MK Logo">
 </main>
 {% endblock %}
+
