@@ -13,27 +13,23 @@ main {
   text-align: center;
   min-height: 100vh;
   padding: 130px 20px;
-  background-image: url("{% static 'images/Sophies Mobile.png' %}");
-  background-size: cover;
-  background-position: center;
+
+  /* Fotoja e background-it */
+  background-image: url("{% static 'images/Sophies-Mobile-HD.png' %}");
+  background-size: contain; /* më mirë për logo (jo për ta shtrirë shumë) */
+  background-position: center center;
   background-repeat: no-repeat;
+  background-color: #d8c5b4; /* ngjyra e sfondit bezhë, si te fotoja jote */
   color: #fff;
   overflow: hidden;
 }
 
-/* Overlay për efekt luksoz */
+/* Overlay për efekt luksoz, por më i butë */
 main::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.55)
-    ),
-    linear-gradient(
-      rgba(199, 123, 99, 0.3),
-      rgba(199, 123, 99, 0.1)
-    );
+  background: rgba(0, 0, 0, 0.25); /* më e lehtë për ta lënë foton të duket qartë */
   z-index: 1;
 }
 
@@ -91,12 +87,10 @@ main h2 {
 }
 
 /* ======== RESPONSIVE DESIGN ======== */
-
-/* Tableta dhe laptopë të vegjël */
 @media (max-width: 1024px) {
   main {
     padding: 100px 15px;
-    background-position: center;
+    background-size: 90%;
   }
   main h1 {
     font-size: 2.6rem;
@@ -106,10 +100,10 @@ main h2 {
   }
 }
 
-/* Telefona (portrait & landscape) */
 @media (max-width: 768px) {
   main {
     padding: 80px 15px;
+    background-size: 85%;
   }
   main h1 {
     font-size: 2rem;
@@ -120,10 +114,10 @@ main h2 {
   }
 }
 
-/* Telefona shumë të vegjël (iPhone SE, etj.) */
 @media (max-width: 480px) {
   main {
     padding: 70px 10px;
+    background-size: 80%;
     background-position: top;
   }
   main h1 {
@@ -140,3 +134,4 @@ main h2 {
   <h2>Your Style, Our Passion</h2>
 </main>
 {% endblock %}
+
