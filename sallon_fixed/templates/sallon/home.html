@@ -14,7 +14,7 @@ main {
   min-height: 100vh;
   padding: 130px 20px;
   background-color: #e5d8c8; /* ngjyra bezhë si te logoja */
-  color: #fff;
+  color: #000;
   overflow: hidden;
 }
 
@@ -40,11 +40,21 @@ main h2 {
   animation: fadeInUp 1.5s ease forwards;
 }
 
-/* Logoja poshtë tekstit */
+/* ======== LOGO E SHKRIHUR ME SFOND ======== */
 main img.logo {
-  width: 280px; /* përshtate sipas dëshirës */
+  width: 280px;
   height: auto;
+  opacity: 0.7; /* e bën më të butë, që të shkrihet me sfondin */
+  mix-blend-mode: multiply; /* efekti që e shkrin me sfondin */
+  filter: brightness(1.05) contrast(95%); /* i jep pamje natyrale */
   animation: fadeInUp 1.8s ease forwards;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Kur kalon miun sipër, efekti del pak më i qartë */
+main img.logo:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
 }
 
 /* ======== ANIMACION I BUTË ======== */
@@ -80,7 +90,7 @@ main img.logo {
     font-size: 0.95rem;
   }
   main img.logo {
-    width: 180px;
+    width: 170px;
   }
 }
 </style>
@@ -91,5 +101,4 @@ main img.logo {
   <img class="logo" src="{% static 'images/Sophies Mobile.png' %}" alt="Hair By Sophie MK Logo">
 </main>
 {% endblock %}
-
 
