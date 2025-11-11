@@ -44,10 +44,13 @@ main h2 {
 main img.logo {
   width: 280px;
   height: auto;
-  opacity: 0.35; /* shumë e butë, mezi e dukshme */
-  mix-blend-mode: multiply; /* e shkrin me ngjyrën e sfondit */
-  filter: brightness(1) contrast(90%);
+  opacity: 0.6; /* pak më e dukshme */
+  mix-blend-mode: screen; /* e bën logo të shkrirë në sfond, por ikonet shihen mirë */
+  filter: brightness(1.1) contrast(1.2);
   animation: fadeInUp 2s ease forwards;
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
 }
 
 /* ======== ANIMACION I BUTË ======== */
