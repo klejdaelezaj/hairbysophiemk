@@ -13,59 +13,38 @@ main {
   text-align: center;
   min-height: 100vh;
   padding: 130px 20px;
-
-  /* Fotoja e background-it */
-  background-image: url("{% static 'images/Sophies-Mobile-HD.png' %}");
-  background-size: contain; /* më mirë për logo (jo për ta shtrirë shumë) */
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: #d8c5b4; /* ngjyra e sfondit bezhë, si te fotoja jote */
+  background-color: #e5d8c8; /* ngjyra bezhë si te logoja */
   color: #fff;
   overflow: hidden;
 }
 
-/* Overlay për efekt luksoz, por më i butë */
-main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25); /* më e lehtë për ta lënë foton të duket qartë */
-  z-index: 1;
-}
-
 /* Titulli kryesor */
 main h1 {
-  position: relative;
-  z-index: 2;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 3.2rem;
+  font-size: 3rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
-  color: #fff;
+  color: #000;
   margin-bottom: 10px;
-  transition: all 0.3s ease;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
 /* Teksti dytësor */
 main h2 {
-  position: relative;
-  z-index: 2;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  font-size: 1.5rem;
-  color: #f3e9dd;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  letter-spacing: 0.5px;
-  max-width: 600px;
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.5s ease forwards;
 }
 
-/* Efekt elegant për desktop */
-main h1:hover {
-  color: #f5ede4;
-  transform: scale(1.03);
-  text-shadow: 0 0 15px #fff, 0 0 25px #e5c1a0;
+/* Logoja poshtë tekstit */
+main img.logo {
+  width: 280px; /* përshtate sipas dëshirës */
+  height: auto;
+  animation: fadeInUp 1.8s ease forwards;
 }
 
 /* ======== ANIMACION I BUTË ======== */
@@ -79,52 +58,29 @@ main h1:hover {
     transform: translateY(0);
   }
 }
-main h1 {
-  animation: fadeInUp 1.2s ease forwards;
-}
-main h2 {
-  animation: fadeInUp 1.5s ease forwards;
-}
 
 /* ======== RESPONSIVE DESIGN ======== */
-@media (max-width: 1024px) {
-  main {
-    padding: 100px 15px;
-    background-size: 90%;
-  }
-  main h1 {
-    font-size: 2.6rem;
-  }
-  main h2 {
-    font-size: 1.3rem;
-  }
-}
-
 @media (max-width: 768px) {
-  main {
-    padding: 80px 15px;
-    background-size: 85%;
-  }
   main h1 {
-    font-size: 2rem;
-    line-height: 1.2;
+    font-size: 2.2rem;
   }
   main h2 {
     font-size: 1rem;
   }
+  main img.logo {
+    width: 200px;
+  }
 }
 
 @media (max-width: 480px) {
-  main {
-    padding: 70px 10px;
-    background-size: 80%;
-    background-position: top;
-  }
   main h1 {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
   main h2 {
     font-size: 0.95rem;
+  }
+  main img.logo {
+    width: 180px;
   }
 }
 </style>
@@ -132,6 +88,8 @@ main h2 {
 <main>
   <h1>Welcome to Hair By Sophie MK</h1>
   <h2>Your Style, Our Passion</h2>
+  <img class="logo" src="{% static 'images/Sophies Mobile.png' %}" alt="Hair By Sophie MK Logo">
 </main>
 {% endblock %}
+
 
