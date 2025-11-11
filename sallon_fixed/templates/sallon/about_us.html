@@ -6,76 +6,229 @@
 {% block content %}
 
 <style>
-    :root{--accent:#c77b63;--dark:#222;--muted:#666;--bg:#faf7f5}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;line-height:1.5;color:var(--dark);margin:0;background:var(--bg)}
-    .container{max-width:1100px;margin:0 auto;padding:36px}
-    .grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:28px}
-    .card{background:#fff;padding:22px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.04)}
-    .badge-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-    .badge{background:#fff7f6;border:1px solid rgba(199,123,99,0.12);padding:8px 12px;border-radius:999px;font-weight:600}
-    .cta{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
-    @media(min-width:820px){.grid{grid-template-columns:1fr 1fr}}
+    :root {
+        --accent: #c77b63;
+        --dark: #222;
+        --muted: #666;
+        --bg: #faf7f5;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.5;
+        color: var(--dark);
+        margin: 0;
+        background: var(--bg);
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 36px 20px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 28px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+        text-align: center;
+    }
+
+    .cta {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.3s ease;
+        margin-top: 10px;
+    }
+
+    .cta:hover {
+        background: #b86b56;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        padding: 48px 24px;
+        background: #000;
+    }
+
+    .hero-section video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        filter: brightness(60%);
+    }
+
+    /* Overlay karameli luksoz */
+    .hero-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        linear-gradient(
+            rgba(199, 123, 99, 0.20),
+            rgba(199, 123, 99, 0.10)
+        );
+        mix-blend-mode: overlay;
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 620px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        color: #f0e8e5;
+    }
+
     .hero-tags {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
 
-.hero-tag {
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 1.5px solid rgba(255,255,255,0.8);
-    color: #ffffff !important;
-    background: rgba(0,0,0,0.25);
-    backdrop-filter: blur(4px);
-    transition: 0.3s ease;
-    cursor: default;
-}
+    .hero-tag {
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: 1.5px solid rgba(255, 255, 255, 0.8);
+        color: #ffffff !important;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        transition: 0.3s ease;
+        cursor: default;
+    }
 
-.hero-tag:hover {
-    background: rgba(255,255,255,0.15);
-    border-color: #fff;
-}
+    .hero-tag:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #fff;
+    }
+
+    /* GRID TWO COLUMNS ON DESKTOP */
+    @media (min-width: 820px) {
+        .grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    /* RESPONSIVE ADJUSTMENTS */
+    @media (max-width: 768px) {
+        .hero-section {
+            min-height: 320px;
+            padding: 36px 16px;
+            text-align: center;
+        }
+
+        .hero-content {
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 28px;
+        }
+
+        .hero-tags {
+            justify-content: center;
+        }
+
+        .cta {
+            width: 80%;
+            text-align: center;
+        }
+    }
 </style>
 
 <main class="container">
 
-<!-- HERO SECTION WITH VIDEO BACKGROUND -->
-<section style="position:relative;overflow:hidden;border-radius:16px;min-height:420px;display:flex;align-items:center;justify-content:center;text-align:left;padding:48px 24px;background:#000">
+    <!-- HERO SECTION WITH VIDEO BACKGROUND -->
+    <section class="hero-section">
+        <video autoplay muted loop playsinline id="heroVideo">
+            <source src="{% static 'video/About us.mp4' %}" type="video/mp4">
+        </video>
 
-  <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(60%)">
-    <source src="{% static 'video/About us.mp4' %}" type="video/mp4">
-  </video>
+        <div class="hero-content">
+            <div style="color:#f5d2c7;font-weight:600;">Mobile Hairdresser • Milton Keynes</div>
+            <h1>Elegance. Confidence.<br>Beautiful hair — wherever you are.</h1>
+            <p>16 years of expertise in colour, extensions, and precision styling — delivered to your home with luxury salon results.</p>
 
-  <div style="position:relative;z-index:2;max-width:620px;color:#fff;display:flex;flex-direction:column;gap:18px">
-      <div style="color:#f5d2c7;font-weight:600;">Mobile Hairdresser • Milton Keynes</div>
-      <h1 style="font-size:40px;margin:0;color:#fff">Elegance. Confidence.<br>Beautiful hair — wherever you are.</h1>
-      <p style="color:#f0e8e5">16 years of expertise in colour, extensions, and precision styling — delivered to your home with luxury salon results.</p>
+            <div class="hero-tags">
+                <span class="hero-tag">Colour Specialist</span>
+                <span class="hero-tag">Hair Extensions</span>
+                <span class="hero-tag">Bridal & Events</span>
+            </div>
 
-    <div class="hero-tags">
-    <span class="hero-tag">Colour Specialist</span>
-    <span class="hero-tag">Hair Extensions</span>
-    <span class="hero-tag">Bridal & Events</span>
-</div>
-      <a class="cta" href="#booking">Book a Consultation</a>
-  </div>
+            <a class="cta" href="#booking">Book a Consultation</a>
+        </div>
+    </section>
 
-</section>
-</section>
-
-<section class="grid">
-  <div class="card">
-    <h3>Ready to Transform Your Hair?</h3>
-    <p>Message Sophie on Instagram to book a consultation and start your hair journey today.</p>
-    <a class="cta" href="https://www.instagram.com/hairbysophiemk/" target="_blank">Message on Instagram</a>
-  </div>
-</section>
+    <section class="grid">
+        <div class="card">
+            <h3>Ready to Transform Your Hair?</h3>
+            <p>Message Sophie on Instagram to book a consultation and start your hair journey today.</p>
+            <a class="cta" href="https://www.instagram.com/hairbysophiemk/" target="_blank">Message on Instagram</a>
+        </div>
+    </section>
 
 </main>
 
-{% endblock %}
+<script>
+    // 🎥 Ndal video-n në telefon për të kursyer bateri / data
+    document.addEventListener("DOMContentLoaded", function () {
+        const video = document.getElementById("heroVideo");
+        if (window.innerWidth < 768) {
+            video.removeAttribute("autoplay");
+            video.pause();
+        }
+    });
+</script>
 
+{% endblock %}
