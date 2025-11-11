@@ -3,8 +3,10 @@
 
 {% block content %}
 <style>
-/* ======== HERO SECTION ======== */
-main {
+/* ===========================
+   HERO SECTION – Hair By Sophie MK
+   =========================== */
+.hero {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,103 +14,115 @@ main {
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  padding: 130px 20px;
-  background-color: #e5d8c8; /* ngjyra bezhë si te logoja */
+  padding: 140px 20px;
+  background: linear-gradient(180deg, #e5d8c8 0%, #f3e9dc 100%);
   color: #000;
   overflow: hidden;
 }
 
+/* Overlay i butë për efekt ndriçimi */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent 70%);
+  z-index: 0;
+}
+
 /* Titulli kryesor */
-main h1 {
+.hero h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: 3rem;
-  letter-spacing: 1px;
   text-transform: uppercase;
-  color: #000;
+  letter-spacing: 1.2px;
+  color: #111;
   margin-bottom: 10px;
   animation: fadeInUp 1.2s ease forwards;
+  z-index: 1;
 }
 
-/* Teksti dytësor */
-main h2 {
+/* Nën-titulli */
+.hero h2 {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 1.3rem;
   color: #333;
-  margin-bottom: 40px;
-  animation: fadeInUp 1.5s ease forwards;
+  margin-bottom: 45px;
+  animation: fadeInUp 1.6s ease forwards;
+  z-index: 1;
 }
 
-/* ======== LOGO SMOOTH & BLENDED ======== */
-main img.logo {
-  width: 280px;
+/* Logo transparente */
+.hero img.logo {
+  width: 300px;
   height: auto;
-  opacity: 0.8; /* më e dukshme, por e butë */
-  filter: brightness(1.15) contrast(1.2) saturate(1.05) blur(0.2px);
-  margin-top: 20px;
-  display: block;
-  transition: all 1s ease;
-  border-radius: 24px;
-  mask-image: radial-gradient(circle, black 70%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
-  animation: fadeInSmooth 1.8s ease forwards;
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+  animation: fadeInSmooth 2s ease forwards;
+  z-index: 1;
+}
+
+.hero img.logo:hover {
+  transform: scale(1.05);
 }
 
 /* ======== ANIMACIONET ======== */
 @keyframes fadeInUp {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(30px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes fadeInSmooth {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(20px);
   }
-  100% {
-    opacity: 0.8;
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
 /* ======== RESPONSIVE DESIGN ======== */
 @media (max-width: 768px) {
-  main h1 {
+  .hero h1 {
     font-size: 2.2rem;
   }
-  main h2 {
-    font-size: 1rem;
+  .hero h2 {
+    font-size: 1.05rem;
   }
-  main img.logo {
+  .hero img.logo {
     width: 220px;
-    opacity: 0.75;
   }
 }
 
 @media (max-width: 480px) {
-  main h1 {
+  .hero {
+    padding: 100px 15px;
+  }
+  .hero h1 {
     font-size: 1.8rem;
   }
-  main h2 {
+  .hero h2 {
     font-size: 0.95rem;
   }
-  main img.logo {
+  .hero img.logo {
     width: 180px;
-    opacity: 0.7;
   }
 }
 </style>
 
-<main>
+<section class="hero">
   <h1>Welcome to Hair By Sophie MK</h1>
   <h2>Your Style, Our Passion</h2>
   <img class="logo" src="{% static 'images/1.png' %}" alt="Hair By Sophie MK Logo">
-</main>
+</section>
 {% endblock %}
+
