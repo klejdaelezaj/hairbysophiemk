@@ -3,7 +3,7 @@
 
 {% block content %}
 <style>
-/* Hero Section (container kryesor) */
+/* HERO SECTION */
 main {
     flex: 1;
     display: flex;
@@ -11,19 +11,18 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 140px 20px;
+    padding: 120px 20px;
     background-image: url("{% static 'images/Sophies Mobile.png' %}");
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
-    background-color: #d1c7b6;
     color: #fff;
     position: relative;
     overflow: hidden;
     min-height: 100vh;
 }
 
-/* Overlay elegant për kontrast dhe luks */
+/* Overlay karamel i butë */
 main::before {
     content: "";
     position: absolute;
@@ -42,39 +41,35 @@ main::before {
 /* Teksti kryesor */
 main h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
+    font-size: clamp(1.8rem, 5vw, 3.2rem); /* responsive, automatikisht përshtatet */
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #fff;
     text-transform: uppercase;
     text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
     animation: glow 2s infinite ease-in-out;
     position: relative;
     z-index: 2;
-    transition: all 0.3s ease;
-}
-
-/* Efekt i lehtë në hover për desktop */
-main h1:hover {
-    color: #f3e9dd;
-    text-shadow: 0 0 15px #f3e9dd, 0 0 25px #fff, 0 0 35px #f3e9dd;
-    transform: scale(1.05);
+    padding: 0 10px;
+    max-width: 90%;
 }
 
 /* Teksti dytësor */
 main h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.6rem;
+    font-size: clamp(1rem, 3.5vw, 1.6rem);
     font-weight: 400;
-    margin-top: 10px;
+    margin-top: 8px;
     color: #f3e9dd;
     letter-spacing: 0.5px;
     position: relative;
     z-index: 2;
+    padding: 0 12px;
+    max-width: 85%;
 }
 
-/* Animacioni i "glow" */
+/* Efekt glow elegant */
 @keyframes glow {
     0%, 100% {
         text-shadow: 1px 1px 6px rgba(0,0,0,0.4), 0 0 5px #f3e9dd;
@@ -84,44 +79,26 @@ main h2 {
     }
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
-    main {
-        padding: 100px 15px;
-        background-size: cover;
-    }
-    main h1 {
-        font-size: 2.5rem;
-    }
-    main h2 {
-        font-size: 1.3rem;
+/* Hover efekt vetëm për desktop */
+@media (hover: hover) {
+    main h1:hover {
+        color: #f3e9dd;
+        text-shadow: 0 0 15px #f3e9dd, 0 0 25px #fff, 0 0 35px #f3e9dd;
+        transform: scale(1.05);
     }
 }
 
-@media (max-width: 768px) {
+/* Për telefonë shumë të vegjël (iPhone SE, Galaxy Mini, etj) */
+@media (max-width: 400px) {
     main {
-        padding: 80px 15px;
-        background-position: center;
+        padding: 80px 10px;
     }
     main h1 {
-        font-size: 2.2rem;
+        font-size: 1.7rem;
         line-height: 1.2;
     }
     main h2 {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    main {
-        padding: 70px 10px;
-        background-size: cover;
-    }
-    main h1 {
-        font-size: 1.9rem;
-    }
-    main h2 {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 }
 </style>
@@ -130,4 +107,6 @@ main h2 {
     <h1>Welcome to Hair By Sophie MK</h1>
     <h2>Your Style, Our Passion</h2>
 </main>
+
 {% endblock %}
+
