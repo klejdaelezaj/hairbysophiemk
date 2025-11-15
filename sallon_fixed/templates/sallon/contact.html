@@ -3,13 +3,13 @@
 
 {% block content %}
 <div class="video-background">
-  <video class="active" autoplay muted loop playsinline>
+  <video class="active" autoplay muted loop playsinline preload="none" poster="{% static 'images/thumb1.jpg' %}">
     <source src="{% static 'video/1.mp4' %}" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline preload="none" poster="{% static 'images/thumb2.jpg' %}">
     <source src="{% static 'video/2.mp4' %}" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline preload="none" poster="{% static 'images/thumb3.jpg' %}">
     <source src="{% static 'video/3.mp4' %}" type="video/mp4">
   </video>
 </div>
