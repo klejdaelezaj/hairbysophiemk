@@ -19,7 +19,7 @@
   min-height: 100vh;
   padding: 140px 20px;
   background: linear-gradient(180deg, #e5d8c8 0%, #f3e9dc 100%);
-  background-attachment: fixed; /* efekt i lehtë parallax */
+  background-attachment: fixed;
   color: #000;
   overflow: hidden;
 }
@@ -33,7 +33,7 @@
   z-index: 0;
 }
 
-/* Titulli kryesor */
+/* Titulli */
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -57,9 +57,9 @@
   z-index: 1;
 }
 
-/* Logo me hije të butë */
+/* Logo – ZMADHIMI I RI */
 .hero img.logo {
-  width: 300px;
+  width: 360px;   /* ⭐ e zmadhuar nga 300 → 360px */
   height: auto;
   opacity: 0;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
@@ -69,64 +69,36 @@
 }
 
 .hero img.logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.12);
 }
 
 /* ======== ANIMACIONET ======== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInSmooth {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ======== RESPONSIVE DESIGN ======== */
+/* ======== RESPONSIVE ======== */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.3rem;
-  }
-  .hero h2 {
-    font-size: 1.05rem;
-  }
-  .hero img.logo {
-    width: 220px;
-  }
+  .hero h1 { font-size: 2.3rem; }
+  .hero h2 { font-size: 1.05rem; }
+  .hero img.logo { width: 260px; }  /* nga 220px */
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding: 100px 15px;
-  }
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  .hero h2 {
-    font-size: 0.95rem;
-  }
-  .hero img.logo {
-    width: 180px;
-  }
+  .hero { padding: 100px 15px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero h2 { font-size: 0.95rem; }
+  .hero img.logo { width: 210px; }  /* nga 180px */
 }
 
 @media (max-width: 360px) {
-  .hero img.logo {
-    width: 150px;
-  }
+  .hero img.logo { width: 180px; }  /* nga 150px */
 }
 </style>
 
@@ -135,4 +107,5 @@
   <h2>Your Style, Our Passion</h2>
   <img class="logo" src="{% static 'images/55.png' %}" alt="Hair By Sophie MK Logo">
 </section>
+
 {% endblock %}
