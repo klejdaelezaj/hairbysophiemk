@@ -78,16 +78,17 @@
 
     .hero-section video {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 50%;
+        left: 50%;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transform: translate(-50%, -50%);
         z-index: 0;
         filter: brightness(60%);
     }
 
-    /* Overlay karameli luksoz */
+    /* Overlay për tekst */
     .hero-section::after {
         content: "";
         position: absolute;
@@ -95,15 +96,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-            rgba(0, 0, 0, 0.45),
-            rgba(0, 0, 0, 0.45)
-        ),
-        linear-gradient(
-            rgba(199, 123, 99, 0.20),
-            rgba(199, 123, 99, 0.10)
-        );
-        mix-blend-mode: overlay;
+        background: rgba(0,0,0,0.4);
         z-index: 1;
     }
 
@@ -190,11 +183,11 @@
 <main class="container">
 
     <!-- HERO SECTION WITH VIDEO BACKGROUND -->
-  <section class="hero-section">
-    <video autoplay muted loop playsinline webkit-playsinline id="heroVideo">
-        <source src="{% static 'video/about_us.mp4' %}" type="video/mp4">
-    </video>
-</section>
+    <section class="hero-section">
+        <video autoplay muted loop playsinline webkit-playsinline id="heroVideo" poster="{% static 'video/about_us_poster.jpg' %}">
+            <source src="{% static 'video/about_us.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
         <div class="hero-content">
             <div style="color:#f5d2c7;font-weight:600;">Mobile Hairdresser • Milton Keynes</div>
@@ -220,16 +213,5 @@
     </section>
 
 </main>
-
-<script>
-    // 🎥 Ndal video-n në telefon për të kursyer bateri / data
-    document.addEventListener("DOMContentLoaded", function () {
-        const video = document.getElementById("heroVideo");
-        if (window.innerWidth < 768) {
-            video.removeAttribute("autoplay");
-            video.pause();
-        }
-    });
-</script>
 
 {% endblock %}
