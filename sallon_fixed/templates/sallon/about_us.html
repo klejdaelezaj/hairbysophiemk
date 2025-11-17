@@ -6,183 +6,184 @@
 {% block content %}
 
 <style>
-    :root {
-        --accent: #c77b63;
-        --dark: #222;
-        --muted: #666;
-        --bg: #faf7f5;
-    }
+:root {
+    --accent: #c77b63;
+    --dark: #222;
+    --muted: #666;
+    --bg: #faf7f5;
+}
 
-    * {
-        box-sizing: border-box;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    body {
-        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        line-height: 1.5;
-        color: var(--dark);
-        margin: 0;
-        background: var(--bg);
-    }
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--dark);
+    margin: 0;
+    background: var(--bg);
+}
 
-    .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 36px 20px;
-    }
+/* HERO SECTION */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: left;
+    padding: 48px 24px;
+    background: #000;
+    border-radius: 16px;
+}
 
+.hero-section video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: brightness(60%);
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    color: #f0e8e5;
+}
+
+.hero-tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-tag {
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1.5px solid rgba(255, 255, 255, 0.8);
+    color: #fff !important;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    cursor: default;
+    transition: 0.3s ease;
+}
+
+.hero-tag:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+}
+
+/* CTA BUTTON */
+.cta {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+.cta:hover {
+    background: #b86b56;
+}
+
+/* GRID */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 28px;
+}
+
+.card {
+    background: #fff;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    text-align: center;
+}
+
+@media (min-width: 820px) {
     .grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 28px;
+        grid-template-columns: 1fr 1fr;
     }
+}
 
-    .card {
-        background: #fff;
-        padding: 22px;
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 320px;
+        padding: 36px 16px;
         text-align: center;
     }
 
-    .cta {
-        display: inline-block;
-        padding: 12px 18px;
-        border-radius: 10px;
-        background: var(--accent);
-        color: #fff;
-        text-decoration: none;
-        font-weight: 700;
-        transition: 0.3s ease;
-        margin-top: 10px;
-    }
-
-    .cta:hover {
-        background: #b86b56;
-    }
-
-    /* HERO SECTION */
-    .hero-section {
-        position: relative;
-        overflow: hidden;
-        border-radius: 16px;
-        min-height: 420px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: left;
-        padding: 48px 24px;
-        background: #000;
-    }
-
-    .hero-section video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transform: translate(-50%, -50%);
-        z-index: 0;
-        filter: brightness(60%);
-    }
-
-    /* Overlay për tekst */
-    .hero-section::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.4);
-        z-index: 1;
-    }
-
     .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 620px;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
+        align-items: center;
+        text-align: center;
     }
 
     .hero-content h1 {
-        font-size: 40px;
-        margin: 0;
-        line-height: 1.2;
-    }
-
-    .hero-content p {
-        color: #f0e8e5;
+        font-size: 28px;
     }
 
     .hero-tags {
-        display: flex;
-        gap: 10px;
-        margin-top: 20px;
-        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .hero-tag {
-        padding: 8px 18px;
-        border-radius: 30px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        border: 1.5px solid rgba(255, 255, 255, 0.8);
-        color: #ffffff !important;
-        background: rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(4px);
-        transition: 0.3s ease;
-        cursor: default;
+    .cta {
+        width: 80%;
+        text-align: center;
     }
-
-    .hero-tag:hover {
-        background: rgba(255, 255, 255, 0.15);
-        border-color: #fff;
-    }
-
-    /* GRID TWO COLUMNS ON DESKTOP */
-    @media (min-width: 820px) {
-        .grid {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-
-    /* RESPONSIVE ADJUSTMENTS */
-    @media (max-width: 768px) {
-        .hero-section {
-            min-height: 320px;
-            padding: 36px 16px;
-            text-align: center;
-        }
-
-        .hero-content {
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 28px;
-        }
-
-        .hero-tags {
-            justify-content: center;
-        }
-
-        .cta {
-            width: 80%;
-            text-align: center;
-        }
-    }
+}
 </style>
 
 <main class="container">
 
-    <!-- HERO SECTION WITH VIDEO BACKGROUND -->
+    <!-- HERO SECTION -->
     <section class="hero-section">
         <video autoplay muted loop playsinline webkit-playsinline id="heroVideo">
             <source src="{% static 'video/About_us.mp4' %}" type="video/mp4">
@@ -204,6 +205,7 @@
         </div>
     </section>
 
+    <!-- GRID SECTION -->
     <section class="grid">
         <div class="card">
             <h3>Ready to Transform Your Hair?</h3>
